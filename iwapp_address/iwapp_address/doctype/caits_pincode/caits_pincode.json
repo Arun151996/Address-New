@@ -17,7 +17,8 @@
   {
    "fieldname": "country",
    "fieldtype": "Data",
-   "label": "Country"
+   "label": "Country",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_fnuy",
@@ -44,7 +45,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-02 20:25:55.870753",
+ "modified": "2024-04-02 22:55:44.597365",
  "modified_by": "Administrator",
  "module": "iWapp-Address",
  "name": "Caits Pincode",
