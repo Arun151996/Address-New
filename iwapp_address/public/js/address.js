@@ -1,4 +1,19 @@
 frappe.ui.form.on("Address", {
+    onload:function(frm){
+        if(frm.doc.links){
+            $.each(frm.doc.links, function(idx, data){
+                frappe.db.get_value(data.link_doctype, data.link_name, ['gstin', 'gst_category', 'tax_category'])
+                .then(r => {
+                    let values = r.message;
+                    console.log(values.tax_category)
+                    if (values){
+                        frm.set_value({"gstin":values.gstin, "gst_category":values.gst_category, "tax_category":values.tax_category})
+                    }
+                })
+
+            })
+        }
+    },
     pincode: function (frm) {
         frm.clear_table("custom_iwapp_pincode_details")
         frm.refresh_fields("custom_iwapp_pincode_details");

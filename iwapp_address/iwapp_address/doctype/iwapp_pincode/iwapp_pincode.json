@@ -45,7 +45,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-05 12:41:05.162054",
+ "modified": "2024-04-05 15:27:49.731881",
  "modified_by": "Administrator",
  "module": "iWapp-Address",
  "name": "Iwapp Pincode",
@@ -65,6 +65,7 @@
    "write": 1
   },
   {
+   "create": 1,
    "email": 1,
    "export": 1,
    "print": 1,
