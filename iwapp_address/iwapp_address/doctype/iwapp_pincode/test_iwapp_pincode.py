@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestCaitsPincode(FrappeTestCase):
+class TestIwappPincode(FrappeTestCase):
 	pass

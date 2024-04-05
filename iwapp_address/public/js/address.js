@@ -1,12 +1,12 @@
 frappe.ui.form.on("Address", {
     pincode: function (frm) {
-        frm.clear_table("custom_caits_pincode_details")
-        frm.refresh_fields("custom_caits_pincode_details");
+        frm.clear_table("custom_iwapp_pincode_details")
+        frm.refresh_fields("custom_iwapp_pincode_details");
         if (frm.doc.country == "India" && frm.doc.pincode) {
-            frappe.db.exists('Caits Pincode', frm.doc.pincode)
+            frappe.db.exists('Iwapp Pincode', frm.doc.pincode)
                 .then(exists => {
                     if (exists) {
-                        frappe.db.get_doc('Caits Pincode', frm.doc.pincode)
+                        frappe.db.get_doc('Iwapp Pincode', frm.doc.pincode)
                             .then(doc => {
                                 if (doc.pincode_details) {
                                     $.each(doc.pincode_details, function (i, pin) {
@@ -33,7 +33,7 @@ frappe.ui.form.on("Address", {
                                     d.show();
                                 }
                                 else {
-                                    frm.set_value({ "state": "", "custom_taluk": "", "county": "", "custom_post_office": "" })
+                                    frm.set_value({ "state": "", "custom_taluk": "", "county": "", "custom_post_office": ""})
                                 }
                             })
                     }
@@ -45,17 +45,17 @@ frappe.ui.form.on("Address", {
                             },
                             callback: function (r) {
                                 if (r.message) {
-                                    frm.clear_table("custom_caits_pincode_details")
+                                    frm.clear_table("custom_iwapp_pincode_details")
                                     $.each(r.message, function (i, pin) {
                                         console.log(pin.Name)
                                         frm.set_value({ "state": pin.State, "custom_taluk": pin.Block, "county": pin.District })
-                                        var child = cur_frm.add_child("custom_caits_pincode_details");
+                                        var child = cur_frm.add_child("custom_iwapp_pincode_details");
                                         child.post_office = pin.Name
                                         child.taluk = pin.Block
                                         child.division = pin.Division
                                         child.district = pin.District
                                         child.state = pin.State
-                                        frm.refresh_fields("custom_caits_pincode_details");
+                                        frm.refresh_fields("custom_iwapp_pincode_details");
                                     })
                                     let d = new frappe.ui.Dialog({
                                         title: 'Select Your Post Office',
@@ -80,7 +80,7 @@ frappe.ui.form.on("Address", {
                                     d.show();
                                 }
                                 else {
-                                    frm.set_value({ "state": "", "custom_taluk": "", "county": "", "custom_post_office": "" })
+                                    frm.set_value({ "state": "", "custom_taluk": "", "county": "", "custom_post_office": ""})
                                 }
                             }
                         })

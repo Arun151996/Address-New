@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "field:pincode",
- "creation": "2024-04-02 20:25:55.870753",
+ "creation": "2024-04-05 10:46:06.545648",
  "default_view": "List",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -39,16 +39,16 @@
    "fieldname": "pincode_details",
    "fieldtype": "Table",
    "label": "Pincode Details",
-   "options": "Caits Pincode Details",
+   "options": "Iwapp Pincode Details",
    "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-04-02 22:55:44.597365",
+ "modified": "2024-04-05 12:41:05.162054",
  "modified_by": "Administrator",
  "module": "iWapp-Address",
- "name": "Caits Pincode",
+ "name": "Iwapp Pincode",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
@@ -61,6 +61,16 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
    "share": 1,
    "write": 1
   }

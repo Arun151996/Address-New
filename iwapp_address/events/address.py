@@ -3,13 +3,13 @@ import requests
 import json
 
 def after_insert(doc, method):
-   if doc.custom_caits_pincode_details:
+   if doc.custom_iwapp_pincode_details:
     pincode=frappe.get_doc({
-    'doctype': 'Caits Pincode',
+    'doctype': 'Iwapp Pincode',
     'country': doc.country,
     'pincode':doc.pincode
     })
-    for i in doc.custom_caits_pincode_details:
+    for i in doc.custom_iwapp_pincode_details:
         pincode.append('pincode_details',
     {
         "post_office": i.post_office,

@@ -217,7 +217,7 @@ fixtures = [{
     "filters": [
         ["name", "in", (
             "Address-custom_post_office", "Address-custom_taluk", "Address-custom_pincode_details",
-            "Address-custom_caits_pincode_details"
+            "Address-custom_iwapp_pincode_details"
             )]
     ]
     },
