@@ -1,19 +1,18 @@
 frappe.ui.form.on("Address", {
-    onload:function(frm){
-        if(frm.doc.links){
-            $.each(frm.doc.links, function(idx, data){
-                frappe.db.get_value(data.link_doctype, data.link_name, ['gstin', 'gst_category', 'tax_category'])
-                .then(r => {
-                    let values = r.message;
-                    console.log(values.tax_category)
-                    if (values){
-                        frm.set_value({"gstin":values.gstin, "gst_category":values.gst_category, "tax_category":values.tax_category})
-                    }
-                })
+    // onload:function(frm){
+    //     if(frm.doc.links){
+    //         $.each(frm.doc.links, function(idx, data){
+    //             frappe.db.get_value(data.link_doctype, data.link_name, ['gstin', 'gst_category', 'tax_category'])
+    //             .then(r => {
+    //                 let values = r.message;
+    //                 if (values){
+    //                     frm.set_value({"gstin":values.gstin, "gst_category":values.gst_category, "tax_category":values.tax_category})
+    //                 }
+    //             })
 
-            })
-        }
-    },
+    //         })
+    //     }
+    // },
     pincode: function (frm) {
         frm.clear_table("custom_iwapp_pincode_details")
         frm.refresh_fields("custom_iwapp_pincode_details");
@@ -62,7 +61,6 @@ frappe.ui.form.on("Address", {
                                 if (r.message) {
                                     frm.clear_table("custom_iwapp_pincode_details")
                                     $.each(r.message, function (i, pin) {
-                                        console.log(pin.Name)
                                         frm.set_value({ "state": pin.State, "custom_taluk": pin.Block, "county": pin.District })
                                         var child = cur_frm.add_child("custom_iwapp_pincode_details");
                                         child.post_office = pin.Name
