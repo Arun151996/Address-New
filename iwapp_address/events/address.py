@@ -22,6 +22,13 @@ def after_insert(doc, method):
     pincode.save()
     doc.reload()
 
+def before_save(doc, method):
+   if doc.links:
+    for i in doc.links:
+        if i.link_doctype == "Customer":
+            cust_tax_category = frappe.db.get_value("Customer", i.link_name, 'tax_category')
+            if cust_tax_category:
+               doc.tax_category = cust_tax_category
 
 @frappe.whitelist()
 def pincode(pin):

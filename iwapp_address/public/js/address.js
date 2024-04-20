@@ -1,18 +1,19 @@
 frappe.ui.form.on("Address", {
-    // onload:function(frm){
-    //     if(frm.doc.links){
-    //         $.each(frm.doc.links, function(idx, data){
-    //             frappe.db.get_value(data.link_doctype, data.link_name, ['gstin', 'gst_category', 'tax_category'])
-    //             .then(r => {
-    //                 let values = r.message;
-    //                 if (values){
-    //                     frm.set_value({"gstin":values.gstin, "gst_category":values.gst_category, "tax_category":values.tax_category})
-    //                 }
-    //             })
-
-    //         })
-    //     }
-    // },
+    onload: function (frm) {
+        if (frm.doc.links) {
+            $.each(frm.doc.links, function (idx, data) {
+                if (data.link_doctype == "Customer") {
+                    frappe.db.get_value("Customer", data.link_name, 'tax_category')
+                        .then(r => {
+                            let values = r.message;
+                            if (values) {
+                                frm.set_value("tax_category", values.tax_category )
+                            }
+                        })
+                }
+            })
+        }
+    },
     pincode: function (frm) {
         frm.clear_table("custom_iwapp_pincode_details")
         frm.refresh_fields("custom_iwapp_pincode_details");
@@ -47,7 +48,7 @@ frappe.ui.form.on("Address", {
                                     d.show();
                                 }
                                 else {
-                                    frm.set_value({ "state": "", "custom_taluk": "", "county": "", "custom_post_office": ""})
+                                    frm.set_value({ "state": "", "custom_taluk": "", "county": "", "custom_post_office": "" })
                                 }
                             })
                     }
@@ -93,7 +94,7 @@ frappe.ui.form.on("Address", {
                                     d.show();
                                 }
                                 else {
-                                    frm.set_value({ "state": "", "custom_taluk": "", "county": "", "custom_post_office": ""})
+                                    frm.set_value({ "state": "", "custom_taluk": "", "county": "", "custom_post_office": "" })
                                 }
                             }
                         })
