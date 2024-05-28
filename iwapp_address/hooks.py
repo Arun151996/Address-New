@@ -27,7 +27,7 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {"Address" : "public/js/address.js"}
+doctype_js = {"Address" : "public/js/address.js", "Contact" : "public/js/contact.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -120,6 +120,9 @@ doc_events = {
 	"Address": {
 		"after_insert": "iwapp_address.events.address.after_insert",
         "before_save": "iwapp_address.events.address.before_save"
+	},
+    "Contact": {
+        "before_save": "iwapp_address.events.contact.before_save"
 	}
 }
 
@@ -218,7 +221,7 @@ fixtures = [{
     "filters": [
         ["name", "in", (
             "Address-custom_post_office", "Address-custom_taluk", "Address-custom_pincode_details",
-            "Address-custom_iwapp_pincode_details"
+            "Address-custom_iwapp_pincode_details", "Contact-custom_full_name"
             )]
     ]
     },
