@@ -119,7 +119,7 @@ doctype_js = {"Address" : "public/js/address.js", "Contact" : "public/js/contact
 doc_events = {
 	"Address": {
 		"after_insert": "iwapp_address.events.address.after_insert",
-        "before_save": "iwapp_address.events.address.before_save"
+        # "before_save": "iwapp_address.events.address.before_save"
 	},
     "Contact": {
         "before_save": "iwapp_address.events.contact.before_save"
