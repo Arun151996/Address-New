@@ -10,6 +10,7 @@ def before_save(doc, method):
     else:
         doc.custom_full_name = doc.first_name
 
+
 @frappe.whitelist()
 def create_user_from_contact(contact):
     contact_doc = frappe.get_doc("Contact", contact)
